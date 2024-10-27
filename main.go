@@ -143,10 +143,13 @@ func main() {
 }
 
 func translateWithOpenAI(text, targetLang, openAIToken string) (string, error) {
+	log.Printf("Translating text: %s", text)
+	log.Printf("Target language: %s", targetLang)
 	prompt := fmt.Sprintf("Translate the following text to %s. Only respond with the translation, nothing else: %s", targetLang, text)
 
 	requestBody := OpenAIRequest{
-		Model: "gpt-4o-mini",
+		// Model: "gpt-4o-mini",
+		Model: "gpt-3.5-turbo",
 		Messages: []Message{
 			{
 				Role:    "user",
